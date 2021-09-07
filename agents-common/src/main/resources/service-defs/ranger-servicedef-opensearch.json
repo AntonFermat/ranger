@@ -1,0 +1,165 @@
+{
+	"id":17,
+	"name": "opensearch",
+	"displayName": "opensearch",
+	"implClass": "org.apache.ranger.services.opensearch.RangerServiceOpenSearch",
+	"label": "OPENSEARCH",
+	"description": "OPENSEARCH",
+	"guid": "",
+	"resources":
+	[
+		{
+			"itemId": 1,
+			"name": "index",
+			"type": "string",
+			"level": 10,
+			"parent": "",
+			"mandatory": true,
+			"lookupSupported": true,
+			"recursiveSupported": false,
+			"excludesSupported": false,
+			"matcher": "org.apache.ranger.plugin.resourcematcher.RangerDefaultResourceMatcher",
+			"matcherOptions": { "wildCard":true, "ignoreCase":true},
+			"validationRegEx":"",
+			"validationMessage": "",
+			"uiHint":"",
+			"label": "Index",
+			"description": "Opensearch Index"
+		}
+	],
+
+	"accessTypes":
+	[
+		{
+			"itemId": 2,
+			"name": "monitor",
+			"label": "monitor"
+		},
+
+		{
+			"itemId": 3,
+			"name": "manage",
+			"label": "manage",
+			"impliedGrants":
+			[
+				"monitor"
+			]
+		},
+
+		{
+			"itemId": 4,
+			"name": "view_index_metadata",
+			"label": "view_index_metadata"
+		},
+
+		{
+			"itemId": 5,
+			"name": "read",
+			"label": "read"
+		},
+
+		{
+			"itemId": 6,
+			"name": "read_cross_cluster",
+			"label": "read_cross_cluster"
+		},
+
+		{
+			"itemId": 7,
+			"name": "index",
+			"label": "index"
+		},
+
+		{
+			"itemId": 8,
+			"name": "create",
+			"label": "create"
+		},
+
+		{
+			"itemId": 9,
+			"name": "delete",
+			"label": "delete"
+		},
+
+		{
+			"itemId": 10,
+			"name": "write",
+			"label": "write"
+		},
+
+		{
+			"itemId": 11,
+			"name": "delete_index",
+			"label": "delete_index"
+		},
+
+		{
+			"itemId": 12,
+			"name": "create_index",
+			"label": "create_index"
+		},
+
+		{
+			"itemId": 1,
+			"name": "all",
+			"label": "all",
+			"impliedGrants":
+			[
+				"monitor",
+				"manage",
+				"view_index_metadata",
+				"read",
+				"read_cross_cluster",
+				"index",
+				"create",
+				"delete",
+				"write",
+				"delete_index",
+				"create_index"
+			]
+		}
+	],
+
+	"configs":
+	[
+		{
+			"itemId": 1,
+			"name": "username",
+			"type": "string",
+			"mandatory": true,
+			"validationRegEx":"",
+			"validationMessage": "",
+			"uiHint":"",
+			"label": "Username"
+		},
+
+		{
+			"itemId": 2,
+			"name": "opensearch.url",
+			"type": "string",
+			"mandatory": true,
+			"defaultValue": "",
+			"validationRegEx":"",
+			"validationMessage": "",
+			"uiHint":"{\"TextFieldWithIcon\":true, \"info\": \"eg. 'http://&lt;ipaddr&gt;:9200'\"}",
+			"label": "Opensearch URL"
+		}
+	],
+	"options": { "enableDenyAndExceptionsInPolicies": "false" },
+
+	"enums":
+	[
+
+	],
+
+	"contextEnrichers":
+	[
+
+	],
+
+	"policyConditions":
+	[
+
+	]
+}

@@ -49,7 +49,7 @@ public class EmbeddedServiceDefsUtil {
 
 
 	// following servicedef list should be reviewed/updated whenever a new embedded service-def is added
-	public static final String DEFAULT_BOOTSTRAP_SERVICEDEF_LIST = "tag,hdfs,hbase,hive,kms,knox,storm,yarn,kafka,solr,atlas,nifi,nifi-registry,sqoop,kylin,elasticsearch,presto,ozone,kudu,schema-registry";
+	public static final String DEFAULT_BOOTSTRAP_SERVICEDEF_LIST = "tag,hdfs,hbase,hive,kms,knox,storm,yarn,kafka,solr,atlas,nifi,nifi-registry,sqoop,kylin,elasticsearch,opensearch,presto,ozone,kudu,schema-registry";
 	private static final String PROPERTY_SUPPORTED_SERVICE_DEFS = "ranger.supportedcomponents";
 	private Set<String> supportedServiceDefs;
 	public static final String EMBEDDED_SERVICEDEF_TAG_NAME  = "tag";
@@ -71,6 +71,7 @@ public class EmbeddedServiceDefsUtil {
 	public static final String EMBEDDED_SERVICEDEF_KYLIN_NAME  = "kylin";
 	public static final String EMBEDDED_SERVICEDEF_ABFS_NAME  = "abfs";
 	public static final String EMBEDDED_SERVICEDEF_ELASTICSEARCH_NAME = "elasticsearch";
+	public static final String EMBEDDED_SERVICEDEF_OPEN_SEARCH_NAME = "opensearch";
 	public static final String EMBEDDED_SERVICEDEF_PRESTO_NAME  = "presto";
 	public static final String EMBEDDED_SERVICEDEF_OZONE_NAME  = "ozone";
 	public static final String EMBEDDED_SERVICEDEF_KUDU_NAME  = "kudu";
@@ -114,6 +115,7 @@ public class EmbeddedServiceDefsUtil {
 	private RangerServiceDef kylinServiceDef;
 	private RangerServiceDef abfsServiceDef;
 	private RangerServiceDef elasticsearchServiceDef;
+	private RangerServiceDef openSearchServiceDef;
 	private RangerServiceDef prestoServiceDef;
 	private RangerServiceDef ozoneServiceDef;
 	private RangerServiceDef kuduServiceDef;
@@ -164,6 +166,7 @@ public class EmbeddedServiceDefsUtil {
 			kylinServiceDef = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_KYLIN_NAME);
 			abfsServiceDef = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_ABFS_NAME);
 			elasticsearchServiceDef = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_ELASTICSEARCH_NAME);
+			openSearchServiceDef = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_OPEN_SEARCH_NAME);
 			prestoServiceDef = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_PRESTO_NAME);
 			ozoneServiceDef = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_OZONE_NAME);
 			kuduServiceDef = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_KUDU_NAME);
@@ -240,6 +243,11 @@ public class EmbeddedServiceDefsUtil {
 	public long getElasticsearchServiceDefId() {
 		return getId(elasticsearchServiceDef);
 	}
+
+	public long getOpenSearchServiceDef() {
+		return getId(openSearchServiceDef);
+	}
+
 	public long getTagServiceDefId() { return getId(tagServiceDef); }
 
 	public long getWasbServiceDefId() { return getId(wasbServiceDef); }
